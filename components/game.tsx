@@ -5,6 +5,8 @@ import type React from "react"
 import { useEffect, useRef, useState } from "react"
 import { useToast } from "@/hooks/use-toast"
 import InfoModal from "./info-modal"
+// Add these imports at the top of the file (after the existing imports)
+import { ChevronLeft, ChevronRight, ArrowUp } from "lucide-react"
 
 // Game constants
 const GRAVITY = 0.5
@@ -20,7 +22,7 @@ const milestones = [
     id: "mvm",
     title: "MVM, Chennai",
     position: 800,
-    description: "Started educational journey at MVM, Chennai",
+    description: "Started educational journey at MVM, Chennai - JEE Mains and Advanced cleared",
     type: "education",
   },
   {
@@ -56,7 +58,7 @@ const milestones = [
     title: "Quant Firm",
     position: 4800,
     description:
-      "Working with a quant firm in stealth to build python scripts for trading models, analytical scripts to analyze various options trading strategies and backtesting algorithms",
+      "Working with a quant firm in stealth to build python scripts for P/L analysis and wrote backtesting algorithms as well earnings analysis and predicted Netflix earnings to generate over 10k$.",
     type: "work",
   },
   {
@@ -79,7 +81,7 @@ const milestones = [
     id: "end",
     title: "Future Awaits",
     position: 7200,
-    description: "Looking ahead to new opportunities (Connect on whatsapp +91 6374900245 and srikanthprakash072003@gmail.com)",
+    description: "Looking ahead to new opportunities",
     type: "future",
   },
 ]
@@ -198,7 +200,7 @@ export default function Game() {
         setGameCompleted(true)
         toast({
           title: "Journey Complete!",
-          description: "I am open to job opportunities as a Software Engineer!",
+          description: "I am open to job opportunities as a Software Engineer, Data Analyst!",
           duration: 5000,
         })
       }
@@ -367,7 +369,6 @@ export default function Game() {
         ctx.textAlign = "center"
         ctx.fillText("I am open to job opportunities", width / 2, height / 2)
         ctx.fillText("as a Software Engineer!", width / 2, height / 2 + 30)
-
       }
     }
   }
@@ -524,6 +525,57 @@ export default function Game() {
         className="w-full h-[400px] bg-gray-800 rounded-lg"
         onClick={handleCanvasClick}
       />
+
+      {gameStarted && (
+        <div className="fixed bottom-8 left-0 right-0 flex justify-between px-8 md:px-16 lg:hidden">
+          <button
+            className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 text-white shadow-lg"
+            onTouchStart={() => {
+              const event = new KeyboardEvent("keydown", { key: "ArrowLeft" })
+              window.dispatchEvent(event)
+            }}
+            onTouchEnd={() => {
+              const event = new KeyboardEvent("keyup", { key: "ArrowLeft" })
+              window.dispatchEvent(event)
+            }}
+            aria-label="Move Left"
+          >
+            <ChevronLeft size={32} />
+          </button>
+
+          <div className="flex gap-4">
+            <button
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 text-white shadow-lg"
+              onTouchStart={() => {
+                const event = new KeyboardEvent("keydown", { key: " " })
+                window.dispatchEvent(event)
+              }}
+              onTouchEnd={() => {
+                const event = new KeyboardEvent("keyup", { key: " " })
+                window.dispatchEvent(event)
+              }}
+              aria-label="Jump"
+            >
+              <ArrowUp size={32} />
+            </button>
+
+            <button
+              className="flex h-16 w-16 items-center justify-center rounded-full bg-purple-600 text-white shadow-lg"
+              onTouchStart={() => {
+                const event = new KeyboardEvent("keydown", { key: "ArrowRight" })
+                window.dispatchEvent(event)
+              }}
+              onTouchEnd={() => {
+                const event = new KeyboardEvent("keyup", { key: "ArrowRight" })
+                window.dispatchEvent(event)
+              }}
+              aria-label="Move Right"
+            >
+              <ChevronRight size={32} />
+            </button>
+          </div>
+        </div>
+      )}
 
       {selectedMilestone && <InfoModal milestone={selectedMilestone} onClose={() => setSelectedMilestone(null)} />}
     </div>
