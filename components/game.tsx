@@ -366,7 +366,7 @@ export default function Game() {
         ctx.font = "bold 24px Arial"
         ctx.textAlign = "center"
         ctx.fillText("I am open to job opportunities", width / 2, height / 2)
-        ctx.fillText("as a Software Engineer! (Connect on +91 6374900245 and srikanthprakash072003@gmail.com)", width / 2, height / 2 + 30)
+        ctx.fillText("as a Software Engineer!", width / 2, height / 2 + 30)
         ctx.fillText("(Connect on +91 6374900245 and srikanthprakash072003@gmail.com)", width / 2, height / 2 + 60)
 
       }
