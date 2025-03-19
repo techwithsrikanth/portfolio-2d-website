@@ -81,7 +81,7 @@ const milestones = [
     id: "end",
     title: "Future Awaits",
     position: 7200,
-    description: "Looking ahead to new opportunities",
+    description: "Looking ahead to new opportunities (Connect with me on whatsapp - +91 6374900245 and email - srikanthprakash072003@gmail.com",
     type: "future",
   },
 ]
