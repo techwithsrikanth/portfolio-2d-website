@@ -3,8 +3,8 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: '2D Portfolio Website',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  description: 'Portfolio',
+  generator: 'version1.dev',
 }
 
 export default function RootLayout({
